@@ -22,7 +22,7 @@ crazyflieTypes:
         kd_z: 0.4
         ki_z: 0.05
         i_range_z: 0.4
-        mass: 0.032
+        mass: 0.041
         massThrust: 132000
   defaultSingleMarker:
     bigQuad: False
@@ -36,6 +36,31 @@ crazyflieTypes:
         pNAcc_z: 8.0 # default 1.0
         mNGyro_rollpitch: 0.2 # default 0.1
         mNGyro_yaw: 0.1 # default 0.1
+      ctrlMel:
+        kp_xy: 0.4 #0.6 # p for position
+        kd_xy: 0.2 # 0.35 # d for position
+        ki_xy: 0.05
+        i_range_xy: 2.0
+        kR_xy: 70000 # p for attitude
+        kw_xy: 20000 # d for attitude
+        kR_z: 60000 # 70000 # p for yaw
+        kw_z: 12000 # 30000  # d for yaw
+        ki_m_z: 500 #0 #20000     # i for yaw
+        i_range_m_z: 1500 # i range for yaw
+        kd_omega_rp: 200 # roll and pitch angular velocity d gain
+        kp_z: 1.25
+        kd_z: 0.4
+        ki_z: 0.05
+        i_range_z: 0.4
+        mass: 0.032
+        massThrust: 132000
+  Hand:
+    bigQuad: False
+    batteryVoltageWarning: 3.8  # V
+    batteryVoltateCritical: 3.7 # V
+    markerConfiguration: 5 # change to 3 for single marker tracking
+    dynamicsConfiguration: 0
+    firmwareParams:
       ctrlMel:
         kp_xy: 0.4 #0.6 # p for position
         kd_xy: 0.2 # 0.35 # d for position
@@ -83,6 +108,31 @@ crazyflieTypes:
         ki_z: 0.05
         i_range_z: 0.4
         mass: 0.032
+        massThrust: 132000
+  cf21:
+    bigQuad: False
+    batteryVoltageWarning: 3.8  # V
+    batteryVoltateCritical: 3.7 # V
+    markerConfiguration: 4 # change to 3 for single marker tracking
+    dynamicsConfiguration: 0
+    firmwareParams:
+      ctrlMel:
+        kp_xy: 0.4 #0.6 # p for position
+        kd_xy: 0.2 # 0.35 # d for position
+        ki_xy: 0.05
+        i_range_xy: 2.0
+        kR_xy: 70000 # p for attitude
+        kw_xy: 20000 # d for attitude
+        kR_z: 60000 # 70000 # p for yaw
+        kw_z: 12000 # 30000  # d for yaw
+        ki_m_z: 500 #0 #20000     # i for yaw
+        i_range_m_z: 1500 # i range for yaw
+        kd_omega_rp: 200 # roll and pitch angular velocity d gain
+        kp_z: 1.25
+        kd_z: 0.4
+        ki_z: 0.05
+        i_range_z: 0.4
+        mass: 0.0040
         massThrust: 132000
   medium:
     bigQuad: True
@@ -134,7 +184,7 @@ crazyflieTypes:
         i_range_z: 4.0
         mass: 0.380
         massThrust: 5400 # 5500 - full battery
-numMarkerConfigurations: 4
+numMarkerConfigurations: 6
 markerConfigurations:
   "0":  # for standard Crazyflie
     numPoints: 4
@@ -165,6 +215,23 @@ markerConfigurations:
     offset: [0.0, -0.01, -0.04]
     points:
       "0": [0.0177184,0.0139654,0.0557585]
+  "4":
+    numPoints: 4
+    offset: [-0.003, -0.01346, -0.054]
+    points:
+      "0": [0.0167981,0.0196546,0.0531018]
+      "1": [0.00652782,-0.01502,0.0535169]
+      "2": [-0.0179843,0.0151346,0.0553235]
+      "3": [0.00740963,0.0340611,0.0535506]
+  "5":
+    numPoints: 4
+    offset: [-0.003, -0.01346, -0.054]
+    points:
+      "0": [0.0145858,-0.0197475,0.0291212]
+      "1": [0.0125318,0.0294242,0.0306447]
+      "2": [-0.0123703,0.0080444,0.0304757]
+      "3": [0.0177687,0.0057263,0.0301611]
+
 numDynamicsConfigurations: 1
 dynamicsConfigurations:
   "0":
