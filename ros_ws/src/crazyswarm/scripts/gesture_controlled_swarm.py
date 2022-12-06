@@ -3,6 +3,7 @@ import numpy as np
 import rospy
 from scipy.spatial.transform import Rotation as R
 from scipy.spatial import distance
+import sys
 
 def getTransform(cf):
 	cf.tf.waitForTransform("/world", "/cf" + str(cf.id), rospy.Time(0), rospy.Duration(10))
@@ -17,6 +18,12 @@ def printAlert(string):
     print('*'*30)
     print('')
 
+def noRotate():
+    if len(sys.argv)>1:
+        if sys.argv[1]=='--no-rotate':
+            return True
+    return False
+
 def main():
     swarm = Crazyswarm()
     timeHelper = swarm.timeHelper
@@ -25,9 +32,9 @@ def main():
     drones = swarm.allcfs.crazyflies[1:]
 
     drone_formation_positions = [
-        [1.5,0,0.2],
-        [1.5,0.4,-0.2],
-        [1.5,-0.4,-0.2]]
+        [1.25,0,0.25],
+        [1.75,0.5,-0.25],
+        [1.75,-0.5,-0.25]]
     
     guestureRecognized = 0
     guestureState = 'START'
@@ -87,7 +94,7 @@ def main():
                     target = drone_transform[0]
                     target[2] = 0.04
             else:
-                if guestureState in ['S2', 'S3']:
+                if guestureState in ['S2', 'S3'] or noRotate():
                     controller_transform[1,0]=0
                 r = R.from_euler('xyz', controller_transform[1], degrees=True)
                 target = r.apply(drone_formation_positions[i])+controller_transform[0]
@@ -125,3 +132,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+# https://arxiv.org/pdf/2012.05457.pdf
