@@ -3,7 +3,7 @@ Gesture Controlled Swarm is an individual project for the course CSCI 599 - Holo
 
 Gesture Controlled Swarm uses drones to render a simple 3D point cloud which can be controlled and manipulated by a user' hand gestures. The project is built upon USC ACT lab's Crazyswarm which defines a Python API to track and control a swarm of Crazyflie 2.0 miniature quadcopters.
 
-The Python script for the Gesture Controlled Swarm can be found [here](ros_ws/src/crazyswarm/scripts/gesture_controlled_swarm.py)
+The Python script for the Gesture Controlled Swarm can be found at: [ros_ws/src/crazyswarm/scripts/gesture_controlled_swarm.py](ros_ws/src/crazyswarm/scripts/gesture_controlled_swarm.py)
 
 # Crazyswarm
 
